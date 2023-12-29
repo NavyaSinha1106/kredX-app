@@ -4,8 +4,9 @@ A demo app built using Next.js and TailwindCSS with reusable components.
 
 ## Features
 
+* Sanity.io - Made use of sanity.io for CMS to fetch all the data for the resources section.
 * Carousel - A carousel to show different resouce posts with smooth navigation and animation.
-* Form - A user-friendly form for collecting personal details with phone number and email validation.
+* "Contact Us" Form - A user-friendly form for collecting personal details with phone number and email validation.
 
 ![image](https://github.com/NavyaSinha1106/kredX-app/assets/105153638/0b88d59e-9643-451d-9659-933bc426f887)
 
