@@ -6,8 +6,9 @@ import TwitterIcon from "../assets/TwitterIcon.svg";
 import YoutubeIcon from "../assets/YoutubeIcon.svg";
 import LinkedinIcon from "../assets/LinkedinIcon.svg";
 import Link from "next/link";
+import { TFooterContent } from "../types";
 
-const PageFooter: React.FC = () => {
+const PageFooter: React.FC<TFooterContent[]> = () => {
   const FooterContent = [
     {
       icon: (InstaIcon as StaticImageData).src,
@@ -39,12 +40,10 @@ const PageFooter: React.FC = () => {
         <img src={KredXUrl} />
       </div>
       <div className="flex">
-        {FooterContent.map((content) => (
-          <>
-            <Link href={content.url}>
-              <img className="p-2" src={content.icon} />
-            </Link>
-          </>
+        {FooterContent.map((content: TFooterContent, index: number) => (
+          <Link href={content.url} key={`${content}_${index}`}>
+            <img className="p-2" src={content.icon} />
+          </Link>
         ))}
       </div>
     </div>

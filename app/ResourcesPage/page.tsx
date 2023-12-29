@@ -20,8 +20,11 @@ const ResourcePage: React.FC = async () => {
       </h1>
       <div className="bg-slate-500 w-3/5 h-0.5 m-2 mb-12"></div>
       <div className="flex flex-wrap justify-center items-center">
-        {data.map((post) => (
-          <Link href={`/resource/${post.slug.current}`}>
+        {data.map((post, index: number) => (
+          <Link
+            href={`/resource/${post.slug.current}`}
+            key={`${post}_${index}`}
+          >
             <div className="text-neutral-600 flex justify-center items-center shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] m-3 bg-white rounded-lg">
               <div className="px-4">
                 <img

@@ -35,7 +35,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
         <div className="flex">
           {data.map((post, index) => (
             <Link
-              key={index}
+              key={`${post}_${index}`}
               href={`/resource/${post.slug.current}`}
               style={{ flex: "0 0 33.33%" }}
               className="section"
@@ -62,6 +62,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
           if (!(index % 3)) {
             return (
               <button
+                key={`button_${index}`}
                 onClick={() => {
                   setCurrentIndex(index / 3);
                   scrollToSection(index);

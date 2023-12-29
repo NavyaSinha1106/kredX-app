@@ -50,7 +50,7 @@ export type ButtonProps = {
     handleClick: () => void;
 }
 
-export type HeadingProp = {
-    text: string;
-    customClass?: string;
+export type TFooterContent = {
+    icon: string;
+    url: string;
 }

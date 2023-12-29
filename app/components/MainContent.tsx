@@ -68,8 +68,8 @@ const MainContent: React.FC = () => {
         KredX AP Automation <br /> Capabilities
       </p>
       <div className="flex justify-between items-start flex-wrap mx-24">
-        {MAIN_CONTENT_DATA.map((content: TMainContentData) => (
-          <Card content={content} />
+        {MAIN_CONTENT_DATA.map((content: TMainContentData, index: number) => (
+          <Card content={content} key={`${content}_${index}`} />
         ))}
       </div>
       <div className="flex justify-center items-center">

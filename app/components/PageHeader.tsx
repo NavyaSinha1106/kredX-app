@@ -25,7 +25,7 @@ const PageHeader: React.FC = () => {
           <div className="flex flex-col justify-evenly mt-28">
             <p className="font-semibold text-white text-6xl">
               {appText.headerContent.heading.split("\n").map((line, index) => (
-                <React.Fragment key={index}>
+                <React.Fragment key={`${line}_${index}`}>
                   {line}
                   {index <
                     appText.headerContent.heading.split("\n").length - 1 && (
