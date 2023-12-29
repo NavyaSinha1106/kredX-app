@@ -8,8 +8,8 @@ import LinkedinIcon from "../assets/LinkedinIcon.svg";
 import Link from "next/link";
 import { TFooterContent } from "../types";
 
-const PageFooter: React.FC<TFooterContent[]> = () => {
-  const FooterContent = [
+const PageFooter: React.FC = () => {
+  const FooterContent: TFooterContent[] = [
     {
       icon: (InstaIcon as StaticImageData).src,
       url: "https://www.instagram.com/",
