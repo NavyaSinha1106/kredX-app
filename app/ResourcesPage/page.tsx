@@ -43,7 +43,7 @@ const ResourcePage: React.FC = async () => {
           </Link>
         ))}
       </div>
-      <Anchor link={"http://localhost:3000"} text={"Go Back"} />
+      <Anchor link={"/"} text={"Go Back"} />
     </div>
   );
 };

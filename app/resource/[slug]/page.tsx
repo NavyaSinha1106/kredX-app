@@ -26,7 +26,7 @@ export default async function SlugPage({
       <p className="text-lg text-slate-700 w-3/5 font-bold">{data.date}</p>
       <div className="bg-slate-600 w-3/5 h-0.5 m-2"></div>
       <img className="m-10" src={urlFor(data.content[0].asset._ref).url()} />
-      <Anchor link={"http://localhost:3000"} text={"Go Back"} />
+      <Anchor link={"/"} text={"Go Back"} />
     </div>
   );
 }

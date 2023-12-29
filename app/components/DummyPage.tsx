@@ -6,7 +6,7 @@ const DummyPage: React.FC<DummyData> = ({ title }) => {
     <>
       <div className="bg-slate-900 h-screen flex flex-col justify-center items-center">
         <h1 className="text-teal-500 font-bold text-4xl">{title}</h1>
-        <Anchor link={"http://localhost:3000"} text={"Go Back"} />
+        <Anchor link={"/"} text={"Go Back"} />
       </div>
     </>
   );

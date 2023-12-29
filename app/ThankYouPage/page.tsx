@@ -26,7 +26,7 @@ const ThankYouPage: React.FC = () => {
           <p className="m-5">Phone: {formCookie.Phone}</p>
           <p className="m-5">Email: {formCookie.Email}</p>
         </div>
-        <Button link={"http://localhost:3000"} text={"Go Back"} />
+        <Button link={"/"} text={"Go Back"} />
       </div>
     </>
   );
