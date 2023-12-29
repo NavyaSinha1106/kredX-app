@@ -2,58 +2,69 @@
 import Link from "next/link";
 import { urlFor } from "../lib/sanityImageUrl";
 import { CarouselProps } from "../types";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 const Carousel: React.FC<CarouselProps> = ({ data }) => {
-  const [currentPosition, setCurrentPosition] = useState<number>(0);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  let width: number;
-  if (typeof window !== "undefined") {
-    width = window.screen.availWidth;
-  }
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setCurrentPosition(-currentIndex * (width - 240));
-  }, [currentIndex]);
+  const scrollToSection = (sectionIndex: number) => {
+    if (carouselRef.current) {
+      const sections =
+        carouselRef.current.querySelectorAll<HTMLDivElement>(".section");
+      const sectionWidth = sections[0]?.getBoundingClientRect().width || 0;
+
+      if (
+        sections.length > 0 &&
+        sectionIndex >= 0 &&
+        sectionIndex < sections.length
+      ) {
+        const targetDistance = sectionIndex * sectionWidth;
+
+        carouselRef.current.scrollTo({
+          left: targetDistance,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
 
   return (
-    <div className="w-full overflow-hidden">
-      <div
-        className="flex w-full"
-        style={{
-          transform: `translateX(${currentPosition}px)`,
-          transition: "0.5s ease-in",
-        }}
-      >
-        {data.map((post, index) => (
-          <Link key={index} href={`/resource/${post.slug.current}`}>
-            <div
-              className="flex-none pr-4"
-              style={{ width: `${(width - 240) / 3}px` }}
+    <>
+      <div className="overflow-hidden" ref={carouselRef}>
+        <div className="flex">
+          {data.map((post, index) => (
+            <Link
+              key={index}
+              href={`/resource/${post.slug.current}`}
+              style={{ flex: "0 0 33.33%" }}
+              className="section"
             >
-              <div className="bg-white text-neutral-600 mt-6 rounded-lg w-full">
-                <img
-                  className="w-full"
-                  src={urlFor(post.content[0].asset._ref).url()}
-                  alt={post.title}
-                />
-                <div className="py-4 w-full">
-                  <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
-                  <p className="text-gray-400">{post.date}</p>
+              <div className="mx-2">
+                <div className="bg-white text-neutral-600 mt-6 rounded-lg">
+                  <img
+                    className="w-full"
+                    src={urlFor(post.content[0].asset._ref).url()}
+                    alt={post.title}
+                  />
+                  <div className="py-4 w-full">
+                    <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+                    <p className="text-gray-400">{post.date}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="flex justify-center items-center mt-6">
-        {data.map((data, index) => {
+        {data.map((_, index: number) => {
           if (!(index % 3)) {
             return (
               <button
                 onClick={() => {
-                  console.log(index);
                   setCurrentIndex(index / 3);
+                  scrollToSection(index);
                 }}
                 className={`${
                   currentIndex === index / 3 ? "bg-zinc-800" : "bg-zinc-300"
@@ -63,7 +74,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
           }
         })}
       </div>
-    </div>
+    </>
   );
 };
 

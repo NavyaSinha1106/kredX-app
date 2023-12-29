@@ -63,11 +63,11 @@ const Form: React.FC = () => {
   }
   return (
     <>
-      <div className="flex justify-center items-center m-20 mx-32 bg-white shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] p-12 h-7/12">
-        <div className="w-4/5">
-          <img src={formUrl} />
+      <div className="flex justify-center items-center p-8 m-20 mx-32 bg-white shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)]">
+        <div className="flex justify-center w-full">
+          <img src={formUrl} alt="Form" className="h-full w-full" />
         </div>
-        <div className="ml-12">
+        <div className="ml-6 w-[90%]">
           <p className="text-3xl bg-gradient-to-r from-teal-600 to-sky-400 text-transparent bg-clip-text font-medium">
             Experience The Simplicity And Efficiency Of KredX Today!
           </p>
@@ -80,21 +80,21 @@ const Form: React.FC = () => {
             <Input
               label="Full Name*"
               placeholder="Enter full name (eg: Jane Doe)"
-              customClass="mt-2"
+              customClass="mt-7"
               setValue={setName}
             />
             <Input
               label="Phone Number*"
               placeholder="Enter phone number (eg: +91 0000000000)"
               setValue={setPhone}
-              customClass="mt-2"
+              customClass="mt-3"
               error={phoneError}
             />
             <Input
               label="Email ID*"
               placeholder="Enter email ID (eg:abc@domain.com)"
               setValue={setEmail}
-              customClass="mt-2"
+              customClass="mt-3"
               error={emailError}
             />
             <Button text="Schedule A Demo" handleClick={handleFormSubmit} />
