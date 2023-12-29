@@ -1,6 +1,6 @@
 # Demo App
 
-A demo app built using Next.js and TailwindCSS with reusable components.
+A demo app built using Next.js, Sanity.io and TailwindCSS with reusable components.
 
 ## Features
 
