@@ -39,10 +39,10 @@ const MultiContentSwitcher: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-center items-center m-20">
-      <p className="text-teal-600 text-4xl font-semibold text-center m-6 ">
+      <p className="bg-gradient-to-r from-teal-600 to-sky-400 text-transparent bg-clip-text text-4xl font-semibold text-center m-6 ">
         The KredX CMS Advantage
       </p>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 w-4/5">
         <div className="w-2/4 flex flex-col justify-between">
           {ContentData.map((item: TFinalContent, index: number) => (
             <div
@@ -52,7 +52,7 @@ const MultiContentSwitcher: React.FC = () => {
               }}
               key={`${item}_${index}`}
             >
-              <div className="flex items-center w-96">
+              <div className="flex items-center justify-between w-96">
                 <p
                   className={`font-semibold mr-4 ${
                     contentId === index ? "text-white" : "text-neutral-600"
@@ -69,7 +69,7 @@ const MultiContentSwitcher: React.FC = () => {
           ))}
         </div>
         <div
-          className={`flex flex-col justify-between items-start bg-teal-600 h-80 p-5 text-white rounded-md ${
+          className={`flex flex-col justify-between items-start bg-teal-600 h-80 w-2/4 p-5 text-white rounded-md ${
             contentId === 0 ? "rounded-tl-none" : ""
           } ${
             contentId === ContentData.length - 1 ? "rounded-bl-none" : ""

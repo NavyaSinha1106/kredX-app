@@ -10,7 +10,7 @@ import ContentIcon_7 from "../assets/ContentIcon_7.svg";
 import ContentIcon_8 from "../assets/ContentIcon_8.svg";
 import { TMainContentData } from "../types";
 import appText from "../data";
-import Button from "./Button";
+import Anchor from "./Anchor";
 import Card from "./Card";
 
 const MAIN_CONTENT_DATA: TMainContentData[] = [
@@ -73,7 +73,7 @@ const MainContent: React.FC = () => {
         ))}
       </div>
       <div className="flex justify-center items-center">
-        <Button link="/RequestDemoPage" text="Request Demo" />
+        <Anchor link="/RequestDemoPage" text="Request Demo" />
       </div>
     </div>
   );

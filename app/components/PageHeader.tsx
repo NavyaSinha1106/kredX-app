@@ -2,9 +2,9 @@ import { StaticImageData } from "next/image";
 import HeaderBackground from "../assets/HeaderBackground.svg";
 import Logo from "../assets/CmsLogo.svg";
 import Frame from "../assets/ConvoFrame.svg";
-import Button from "./Button";
 import appText from "../data";
 import React from "react";
+import Anchor from "./Anchor";
 
 const PageHeader: React.FC = () => {
   const imageUrl: string = (HeaderBackground as StaticImageData).src;
@@ -38,7 +38,7 @@ const PageHeader: React.FC = () => {
               {appText.headerContent.subHeading}
             </p>
             <div className="pl-0">
-              <Button
+              <Anchor
                 link="/LearnMorePage"
                 text="Learn More"
                 customClass="ml-0"

@@ -1,15 +1,17 @@
-import Link from "next/link";
 import { ButtonProps } from "../types";
 
-const Button: React.FC<ButtonProps> = ({ link, text, customClass = "" }) => {
+const Button: React.FC<ButtonProps> = ({
+  text,
+  customClass = "",
+  handleClick,
+}) => {
   return (
-    <Link href={link}>
-      <button
-        className={`m-10 text-white rounded-md bg-teal-400 w-60 h-14 font-semibold ${customClass}`}
-      >
-        {text}
-      </button>
-    </Link>
+    <button
+      className={`w-full mt-8 text-white rounded-md bg-teal-400 h-12 font-semibold ${customClass}`}
+      onClick={handleClick}
+    >
+      {text}
+    </button>
   );
 };
 
